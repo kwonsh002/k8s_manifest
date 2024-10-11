@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-backend-deployment
+  namespace: default # 여기에서 네임스페이스를 설정합니다.
   labels:
     app: my-backend
 spec:
@@ -16,11 +17,9 @@ spec:
     spec:
       containers:
         - name: my-backend-container
-          image: registrybluejay.azurecr.io/myapp:latest # ACR에서 이미지를 가져옴, 태그는 필요에 따라 수정
+          image: registrybluejay.azurecr.io/myapp:<TIMESTAMP> # ACR에서 이미지를 가져옴, 태그는 필요에 따라 수정
           ports:
             - containerPort: 8000 # 컨테이너의 포트
           env:
-            # - name: DATABASE_URL # 환경 변수 설정 (필요에 따라 추가)
-            #   value: "<your_database_url>" # 실제 값으로 변경
----
-
+            # - name: DATABASE_URL  # 환경 변수 설정 (필요에 따라 추가)
+            #   value: "<your_database_url>"  # 실제 값으로 변경
