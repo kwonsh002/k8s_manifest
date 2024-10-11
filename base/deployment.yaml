@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: my-backend-container
-          image: registrybluejay.azurecr.io/myapp:<TIMESTAMP> # ACR에서 이미지를 가져옴, 태그는 필요에 따라 수정
+          image: registrybluejay.azurecr.io/myapp:20241011075629
           ports:
             - containerPort: 8000 # 컨테이너의 포트
           env:
